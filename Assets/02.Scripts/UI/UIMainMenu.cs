@@ -1,18 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIMainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private GameObject buttons;
+    private Button statusButton;
+    private Button inventoryButton;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void OpenMainMenu()
+    {
+
+    }
+
+    public void OpenStatus()
+    {
+
+    }
+
+    public void OpenInventory()
+    {
+
     }
 }

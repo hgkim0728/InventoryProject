@@ -357,6 +357,7 @@ MonoBehaviour:
   playerCurExpSliderImage: {fileID: 278792591}
   playerCurExpText: {fileID: 1901856866}
   playerInfoText: {fileID: 583344182}
+  goldText: {fileID: 578633590}
 --- !u!1 &260401767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2650,6 +2651,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slot
       objectReference: {fileID: 0}
+    - target: {fileID: 1977143896843685554, guid: 22475a0d0461abf498477862f537913d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7031702629206883508, guid: 22475a0d0461abf498477862f537913d, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2664,7 +2669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7031702629206883508, guid: 22475a0d0461abf498477862f537913d, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7031702629206883508, guid: 22475a0d0461abf498477862f537913d, type: 3}
       propertyPath: m_AnchorMin.x
@@ -2672,15 +2677,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7031702629206883508, guid: 22475a0d0461abf498477862f537913d, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7031702629206883508, guid: 22475a0d0461abf498477862f537913d, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 7031702629206883508, guid: 22475a0d0461abf498477862f537913d, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 110
       objectReference: {fileID: 0}
     - target: {fileID: 7031702629206883508, guid: 22475a0d0461abf498477862f537913d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2712,11 +2717,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7031702629206883508, guid: 22475a0d0461abf498477862f537913d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 7031702629206883508, guid: 22475a0d0461abf498477862f537913d, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 7031702629206883508, guid: 22475a0d0461abf498477862f537913d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3333,7 +3338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3625,6 +3630,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   backButton: {fileID: 1812219686}
+  content: {fileID: 260401768}
+  slotPrefab: {fileID: 1977143896843685554, guid: 22475a0d0461abf498477862f537913d, type: 3}
+  slotCount: 12
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

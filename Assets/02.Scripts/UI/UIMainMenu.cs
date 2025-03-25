@@ -15,6 +15,7 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] private Image playerCurExpSliderImage;
     [SerializeField] private Text playerCurExpText;
     [SerializeField] private Text playerInfoText;
+    [SerializeField] private Text goldText;
 
     void Start()
     {
@@ -38,12 +39,14 @@ public class UIMainMenu : MonoBehaviour
     {
         uiManager.StatusObj.SetActive(true);
         buttons.SetActive(false);
+        uiManager.Status.SetStatus();
     }
 
     void OpenInventory()
     {
         uiManager.InventoryObj.SetActive(true);
         buttons.SetActive(false);
+        uiManager.Inventory.SetInventory();
     }
 
     public void SetData(PlayerInfoSO _playerInfo)
@@ -53,5 +56,6 @@ public class UIMainMenu : MonoBehaviour
         playerLevelText.text = _playerInfo.CurPlayerLevel.ToString();
         playerCurExpSliderImage.fillAmount = (float)_playerInfo.CurCharacterExp / _playerInfo.MaxPlayerExp;
         playerCurExpText.text = $"{_playerInfo.CurCharacterExp} / {_playerInfo.MaxPlayerExp}";
+        goldText.text = _playerInfo.PlayerGold.ToString();
     }
 }

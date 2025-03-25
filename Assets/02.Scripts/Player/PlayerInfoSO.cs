@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "new PlayerInfoSO", menuName = "PlayerInfo")]
@@ -35,12 +36,19 @@ public class PlayerInfoSO : ScriptableObject
     }
     // 스탯 배열
     [SerializeField] private StatSO[] stats;
-    public StatSO[] Stats { get { return stats; } }
+    public StatSO[] StatSOs { get { return stats; } }
     // 플레이어 소지 골드
     [SerializeField] private int playerGold;
     public int PlayerGold
     { 
         get { return playerGold; }
         set { playerGold = value; }
+    }
+    // 소지 아이템 리스트
+    [SerializeField] private List<ItemSO> listInventory;
+    public List<ItemSO> ListInventory
+    { 
+        get { return listInventory; }
+        set {  listInventory = value; }
     }
 }

@@ -1,16 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static GameManager gameManager;
+    public static GameManager GameManagerInstance
+    { get { return gameManager; } }
+    [SerializeField] private PlayerInfoSO playerInfo;
+
+    private UIManager uiManager;
+    private Character player;
+    public Character Player
     {
-        
+        get { return player; }
     }
 
-    // Update is called once per frame
+    private void Awake()
+    {
+        if(gameManager == null)
+        {
+            gameManager = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+
+        player = new Character(playerInfo);
+    }
+
+    void Start()
+    {
+        uiManager = UIManager.Instance;
+    }
+
     void Update()
     {
         

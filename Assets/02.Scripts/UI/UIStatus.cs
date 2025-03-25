@@ -1,16 +1,34 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIStatus : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private UIManager uiManager;
+    private GameManager gameManager;
+
+    [SerializeField] private Button backButton;
+    [SerializeField] private Transform statPanel;
+    [SerializeField] private GameObject statPrefab;
+
     void Start()
     {
-        
+        uiManager = UIManager.Instance;
+        gameManager = GameManager.GameManagerInstance;
     }
 
-    // Update is called once per frame
+    public void Init()
+    {
+        backButton.onClick.AddListener(uiManager.MainMenu.OpenMainMenu);
+        StatSO[] stats = gameManager.Player.PlayerInfo.Stats;
+        int length = stats.Length;
+
+        for(int i = 0; i < length; i++)
+        {
+            GameObject stat = Instantiate(statPrefab, statPanel);
+            stat.GetComponent<Stat>().SetStat(stats[i]);
+        }
+    }
+
     void Update()
     {
         

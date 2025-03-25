@@ -2,32 +2,36 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
+    private GameManager gameManager;
     private static UIManager instance;
     public static UIManager Instance { get { return instance; } }
-    [SerializeField] GameObject uiMainMenuObj;
-    [SerializeField] GameObject uiStatusObj;
-    [SerializeField] GameObject uiInventoryObj;
+    [SerializeField] private GameObject uiMainMenuObj;
+    public GameObject MainMenuObj
+    { 
+        get { return uiMainMenuObj; }
+        set { uiMainMenuObj = value; }
+    }
+    [SerializeField] private GameObject uiStatusObj;
+    public GameObject StatusObj
+    {
+        get { return uiStatusObj; }
+        set { uiStatusObj = value; }
+    }
+    [SerializeField] private GameObject uiInventoryObj;
+    public GameObject InventoryObj
+    {
+        get { return uiInventoryObj; }
+        set { uiInventoryObj = value; }
+    }
 
     private UIMainMenu uiMainMenu;
-    public UIMainMenu MainMenu
-    {
-        get { return uiMainMenu; }
-        set { uiMainMenu = value; }
-    }
+    public UIMainMenu MainMenu { get  { return uiMainMenu; } }
     private UIStatus uiStatus;
-    public UIStatus Status
-    {
-        get { return uiStatus; }
-        set { uiStatus = value; }
-    }
+    public UIStatus Status { get { return uiStatus; } }
     private UIInventory uiInventory;
-    public UIInventory Inventory
-    {
-        get { return uiInventory; }
-        set { uiInventory = value; }
-    }
+    public UIInventory Inventory { get { return uiInventory; } }
 
-    void Start()
+    private void Awake()
     {
         if(instance == null)
         {
@@ -43,7 +47,15 @@ public class UIManager : MonoBehaviour
         uiInventory = uiInventoryObj.GetComponent<UIInventory>();
     }
 
-    // Update is called once per frame
+    void Start()
+    {
+        gameManager = GameManager.GameManagerInstance;
+        uiMainMenu.SetData(gameManager.Player.PlayerInfo);
+        uiStatus.Init();
+        uiInventory.Init();
+        uiMainMenu.OpenMainMenu();
+    }
+
     void Update()
     {
         
